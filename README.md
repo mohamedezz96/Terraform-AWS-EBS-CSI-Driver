@@ -32,7 +32,7 @@ To get started, follow these instructions:
 - `aws_ebs_csi_driver_version`: The version of the EBS CSI Driver Helm Chart to use.
 - `values_file`: The path to the YAML file containing additional configuration values for the AWS EBS CSI Driver(aws_ebs_csi_driver.yaml).
 
-    #### aws_ebs_csi_driver.yaml
+    ##### aws_ebs_csi_driver.yaml
     ```yaml
     storageClasses: 
       - name: ebs-sc
