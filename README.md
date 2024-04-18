@@ -63,6 +63,23 @@ terraform apply --auto-approve
 
 ### Usage
 To test your driver:
+#### pvc.yaml
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ebs-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ebs-sc
+  resources:
+    requests:
+      storage: 4Gi
+```
+```bash
+kubectl apply -f pvc.yaml
+```
 #### pod.yaml
 ```yaml
 apiVersion: v1
@@ -86,20 +103,4 @@ spec:
 ```bash
 kubectl apply -f pod.yaml
 ```
-#### pvc.yaml
-```yaml
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: ebs-claim
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: ebs-sc
-  resources:
-    requests:
-      storage: 4Gi
-```
-```bash
-kubectl apply -f pvc.yaml
-```
+
