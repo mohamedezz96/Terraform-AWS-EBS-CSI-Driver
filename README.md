@@ -48,6 +48,7 @@ storageClasses:
     # defaults to Delete
     reclaimPolicy: Retain
     parameters:
+      type: gp3
       encrypted: "true"
 ```
 ### Deployment
