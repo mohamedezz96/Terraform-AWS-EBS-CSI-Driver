@@ -35,7 +35,20 @@ To get started, follow these instructions:
 #### values/aws_efs_csi_driver.yaml
 ```yaml
 storageClasses: 
-
+  - name: ebs-sc
+    # annotation metadata
+    annotations:
+      storageclass.kubernetes.io/is-default-class: "true"
+    # label metadata
+    labels:
+      sc: ebs
+    # defaults to WaitForFirstConsumer
+    volumeBindingMode: WaitForFirstConsumer
+    provisioner: ebs.csi.aws.com
+    # defaults to Delete
+    reclaimPolicy: Retain
+    parameters:
+      encrypted: "true"
 ```
 ### Deployment
 
