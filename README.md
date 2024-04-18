@@ -30,7 +30,7 @@ To get started, follow these instructions:
 ### Configuration
 #### aws_ebs_csi_driver.tf
 - `aws_ebs_csi_driver_version`: The version of the EBS CSI Driver Helm Chart to use.
-- `values_file`: The path to the YAML file containing additional configuration values for the AWS EBS CSI Driver.
+- `values_file`: The path to the YAML file containing additional configuration values for the AWS EBS CSI Driver(aws_ebs_csi_driver.yaml).
 
 #### aws_ebs_csi_driver.yaml
 ```yaml
