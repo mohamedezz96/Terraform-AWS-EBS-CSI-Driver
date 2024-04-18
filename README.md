@@ -62,5 +62,44 @@ terraform apply --auto-approve
 ```
 
 ### Usage
-To test your driver follow this link: https://docs.aws.amazon.com/eks/latest/userguide/ebs-sample-app.html
-
+To test your driver:
+#### pod.yaml
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app
+spec:
+  containers:
+  - name: app
+    image: centos
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo $(date -u) >> /data/out.txt; sleep 5; done"]
+    volumeMounts:
+    - name: persistent-storage
+      mountPath: /data
+  volumes:
+  - name: persistent-storage
+    persistentVolumeClaim:
+      claimName: ebs-claim
+```
+```bash
+kubectl apply -f pod.yaml
+```
+#### pvc.yaml
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ebs-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ebs-sc
+  resources:
+    requests:
+      storage: 4Gi
+```
+```bash
+kubectl apply -f pvc.yaml
+```
