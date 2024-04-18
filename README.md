@@ -20,19 +20,19 @@ To get started, follow these instructions:
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/mohamedezz96/Terraform-AWS-EFS-CSI-Driver.git
+    git clone https://github.com/mohamedezz96/Terraform-AWS-EBS-CSI-Driver.git
     ```
 2. Change into the project directory:
 
     ```bash
-    cd Terraform-AWS-EFS-CSI-Driver
+    cd Terraform-AWS-EBS-CSI-Driver
     ```
 ### Configuration
-#### aws_efs_csi_driver.tf
-- `aws_efs_csi_driver_version`: The version of the EBS CSI Driver Helm Chart to use.
+#### aws_ebs_csi_driver.tf
+- `aws_ebs_csi_driver_version`: The version of the EBS CSI Driver Helm Chart to use.
 - `values_file`: The path to the YAML file containing additional configuration values for the AWS EBS CSI Driver.
 
-#### values/aws_efs_csi_driver.yaml
+#### aws_ebs_csi_driver.yaml
 ```yaml
 storageClasses: 
   - name: ebs-sc
@@ -53,7 +53,7 @@ storageClasses:
 ```
 ### Deployment
 
-Once configured, you can deploy the ALB controller by running:
+Once configured, you can deploy the AWS EBS CSI Driver by running:
 
 ```bash
 terraform init
@@ -62,7 +62,7 @@ terraform apply --auto-approve
 ```
 
 ### Usage
-To test your driver:
+To test your driver apply the following steps:
 #### pvc.yaml
 ```yaml
 apiVersion: v1
