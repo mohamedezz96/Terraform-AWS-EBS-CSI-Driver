@@ -27,30 +27,30 @@ To get started, follow these instructions:
     ```bash
     cd Terraform-AWS-EBS-CSI-Driver
     ```
-### Configuration
-#### aws_ebs_csi_driver.tf
-- `aws_ebs_csi_driver_version`: The version of the EBS CSI Driver Helm Chart to use.
-- `values_file`: The path to the YAML file containing additional configuration values for the AWS EBS CSI Driver(aws_ebs_csi_driver.yaml).
-
-    ##### aws_ebs_csi_driver.yaml
-    ```yaml
-    storageClasses: 
-      - name: ebs-sc
-        # annotation metadata
-        annotations:
-          storageclass.kubernetes.io/is-default-class: "true"
-        # label metadata
-        labels:
-          sc: ebs
-        # defaults to WaitForFirstConsumer
-        volumeBindingMode: WaitForFirstConsumer
-        provisioner: ebs.csi.aws.com
-        # defaults to Delete
-        reclaimPolicy: Retain
-        parameters:
-          type: gp3
-          encrypted: "true"
-    ```
+    ### Configuration
+    #### aws_ebs_csi_driver.tf
+    - `aws_ebs_csi_driver_version`: The version of the EBS CSI Driver Helm Chart to use.
+    - `values_file`: The path to the YAML file containing additional configuration values for the AWS EBS CSI Driver(aws_ebs_csi_driver.yaml).
+    
+        ##### aws_ebs_csi_driver.yaml
+        ```yaml
+        storageClasses: 
+          - name: ebs-sc
+            # annotation metadata
+            annotations:
+              storageclass.kubernetes.io/is-default-class: "true"
+            # label metadata
+            labels:
+              sc: ebs
+            # defaults to WaitForFirstConsumer
+            volumeBindingMode: WaitForFirstConsumer
+            provisioner: ebs.csi.aws.com
+            # defaults to Delete
+            reclaimPolicy: Retain
+            parameters:
+              type: gp3
+              encrypted: "true"
+        ```
 ### Deployment
 
 Once configured, you can deploy the AWS EBS CSI Driver by running:
