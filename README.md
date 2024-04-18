@@ -77,6 +77,7 @@ spec:
     requests:
       storage: 4Gi
 ```
+1. Apply the pvc.yaml file on your cluster:
 ```bash
 kubectl apply -f pvc.yaml
 ```
@@ -100,7 +101,19 @@ spec:
     persistentVolumeClaim:
       claimName: ebs-claim
 ```
+2. Apply the pod.yaml file on your cluster:
 ```bash
 kubectl apply -f pod.yaml
 ```
-
+3. Check that there is a pv created on your cluster:
+```bash
+kubectl get pv
+```
+4. Check the status of your pvc:
+```bash
+kubectl get pvc
+```
+5. Check the status of your application:
+```bash
+kubectl get pods -o wide
+```
