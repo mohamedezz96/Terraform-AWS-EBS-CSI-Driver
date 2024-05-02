@@ -63,6 +63,11 @@ To get started, follow these instructions:
 
 ### Usage
 To test your driver apply the following steps:
+
+1. Apply the following pvc.yaml file on your cluster:
+```bash
+kubectl apply -f pvc.yaml
+```
 #### pvc.yaml
 ```yaml
 apiVersion: v1
@@ -77,9 +82,9 @@ spec:
     requests:
       storage: 4Gi
 ```
-1. Apply the pvc.yaml file on your cluster:
+2. Apply the pod.yaml file on your cluster:
 ```bash
-kubectl apply -f pvc.yaml
+kubectl apply -f pod.yaml
 ```
 #### pod.yaml
 ```yaml
@@ -101,10 +106,7 @@ spec:
     persistentVolumeClaim:
       claimName: ebs-claim
 ```
-2. Apply the pod.yaml file on your cluster:
-```bash
-kubectl apply -f pod.yaml
-```
+
 3. Check that there is a pv created on your cluster:
 ```bash
 kubectl get pv
